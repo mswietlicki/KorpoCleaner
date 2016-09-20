@@ -1,6 +1,6 @@
 # KorpoCleaner
 
-This is instruction how to rid my company laptop of company bloatware, spyware and preapre it for normal use.
+This is instruction how to rid my company laptop of company bloatware, spyware and preapre it for normal use. Work on Window 8.1 and Windows 10
 
 1. Request Local Admin Account for recovery purposes. Then check if it works.
 2. Open Computer Management (compmgmt.msc). Go to "Local Users and Groups"/Groups. Open Administrators. Add your normal domain user.
@@ -47,7 +47,12 @@ Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\dagkgsvc -Name Start -V
 Set-ItemProperty HKCU:\Network -Name RestoreDiskChecked -Value 0
 ```
 
-### Fix Build-In admin 
+### Turn off UAC
+```powershell
+Set-ItemProperty -Path HKLM:Software\Microsoft\Windows\CurrentVersion\Policies\System -Name EnableLUA -Value 0 -Force
+```
+
+### Fix Build-In admin Edge error 
 ```powershell
 Set-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name FilterAdministratorToken -Value 1
 Set-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\UIPI -Name '(Default)' -Value 1
@@ -58,3 +63,14 @@ Set-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Winlogon\Notifications\Components\GPClient" /va /f
 ```
 
+## Side effects
+
+1. If you experience corporate DirectAccess connectivity problem try:
+    ```powershell
+    netsh interface teredo set state disable
+    netsh interface httpstunnel show interfaces
+    ```
+
+## Disclaimer
+
+I am not responsible for bricked laptops, connectivity problems, thermonuclear war, or you getting fired because of this guide. Please do some research if you have any concerns about features included in this guide before applying it! YOU are choosing to make these modifications, and if you point the finger at me for messing up your device, I will laugh at you.
