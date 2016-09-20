@@ -13,48 +13,48 @@ This is instruction how to rid my company laptop of company bloatware, spyware a
 
 ### Remove corporate wallpaper
 ```powershell
-    Remove-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\ActiveDesktop NoChangingWallPaper
-    Remove-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System Wallpaper
-    Remove-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System WallpaperStyle
+Remove-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\ActiveDesktop NoChangingWallPaper
+Remove-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System Wallpaper
+Remove-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System WallpaperStyle
 ```
 
 ### Remove corporate lockscreen
 ```powershell
-    Remove-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization NoChangingLockScreen
-    Remove-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization LockScreenOverlaysDisabled
-    Remove-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization LockScreenImage
+Remove-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization NoChangingLockScreen
+Remove-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization LockScreenOverlaysDisabled
+Remove-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization LockScreenImage
 ```
 
 ### Reanable Windows Update
 ```powershell
-    Remove-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate DisableWindowsUpdateAccess
-    Remove-ItemProperty HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer NoWindowsUpdate
+Remove-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate DisableWindowsUpdateAccess
+Remove-ItemProperty HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer NoWindowsUpdate
 ```
 
 ### Allow Windows to remember your user
 ```powershell
-    Remove-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System dontdisplaylastusername
-    Remove-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System dontdisplaylockeduserid
+Remove-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System dontdisplaylastusername
+Remove-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System dontdisplaylockeduserid
 ```
 
 ### Disable DailyAdmin service (Corporate spying application)
 ```powershell
-    Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\dagkgsvc -Name Start -Value 4
+Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\dagkgsvc -Name Start -Value 4
 ```
 
 ### Remove "Network Share not found" warning
 ```powershell
-    Set-ItemProperty HKCU:\Network -Name RestoreDiskChecked -Value 0
+Set-ItemProperty HKCU:\Network -Name RestoreDiskChecked -Value 0
 ```
 
 ### Fix Build-In admin 
 ```powershell
-    Set-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name FilterAdministratorToken -Value 1
-    Set-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\UIPI -Name '(Default)' -Value 1
+Set-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name FilterAdministratorToken -Value 1
+Set-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\UIPI -Name '(Default)' -Value 1
 ```
 
 ### Remove Group Policy warning (*Not jet working*)
 ```cmd
-    REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Winlogon\Notifications\Components\GPClient" /va /f
+REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Winlogon\Notifications\Components\GPClient" /va /f
 ```
 
