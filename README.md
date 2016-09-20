@@ -66,6 +66,7 @@ REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Winlogon\Notifications\Compone
 ## Side effects
 
 1. If you experience corporate DirectAccess connectivity problem try:
+
     ```powershell
     netsh interface teredo set state disable
     netsh interface httpstunnel show interfaces
