@@ -100,6 +100,7 @@ If you have problems with DirectAccess or other access and network problem you c
     is a feature of the Microsoft Windows NT family of operating systems that controls the working environment of user accounts and computer accounts. Group Policy provides the centralized management and configuration of operating systems, applications, and users' settings in an Active Directory environment. A version of Group Policy called Local Group Policy ("LGPO" or "LocalGPO") also allows Group Policy Object management on standalone and non-domain computers.
 - **GPC (Group Policy Client)**
     is a WindowsService that download and applies GP on your computer. This service overwrites your wallpaper, users, groups and other computer settings.
+- **Restricted Groups** is a policy that sets your local administrators group remotely.
 
 ## Disclaimer
 
