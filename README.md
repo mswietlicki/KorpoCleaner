@@ -42,6 +42,17 @@ Remove-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Sys
 Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\dagkgsvc -Name Start -Value 4
 ```
 
+### Remove DailyAdmin
+```powershell
+Remove-Item "C:\Program Files\DailyAdmin" -Recurse -Force
+Remove-Item "C:\Program Files (x86)\DailyAdmin" -Recurse -Force
+```
+
+### Remove Citrix
+```powershell
+Remove-Item "C:\Program Files\Citrix" -Recurse -Force
+```
+
 ### Remove "Network Share not found" warning
 ```powershell
 Set-ItemProperty HKCU:\Network -Name RestoreDiskChecked -Value 0
@@ -58,7 +69,7 @@ Set-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 Set-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\UIPI -Name '(Default)' -Value 1
 ```
 
-### Remove Group Policy warning (*Not jet working*)
+### Remove Group Policy warning (*Not yet working*)
 ```cmd
 REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Winlogon\Notifications\Components\GPClient" /va /f
 ```
